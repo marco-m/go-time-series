@@ -1,9 +1,7 @@
 # go-time-series
 
-
-[![License](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](./LICENSE)
-[![GoDoc](https://pkg.go.dev/github.com/codesuki/go-time-series?status.svg)](https://pkg.go.dev/github.com/codesuki/go-time-series)
-[![Build Status](http://img.shields.io/travis/codesuki/go-time-series.svg?style=flat)](https://travis-ci.org/codesuki/go-time-series)
+[![Go Reference](https://pkg.go.dev/badge/github.com/marco-m/go-time-series.svg)](https://pkg.go.dev/github.com/marco-m/go-time-series)
+[![Build Status](https://github.com/marco-m/go-time-series/actions/workflows/ci.yaml/badge.svg?branch=master)](https://github.com/marco-m/go-time-series/actions/)
 
 Time series implementation in Go.
 
