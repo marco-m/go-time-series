@@ -5,11 +5,9 @@
 
 Time series implementation in Go.
 
-It is used in [go-trending](https://www.github.com/codesuki/go-trending) as a backend for a trending algorithm.
-The time series supports storing counts at different granularities, e.g. seconds, minutes, hours, ....<br />
-In case of go-trending the time series is configured to have recent data available at small granularity, i.e. the recent 60 seconds, and historical data available at large granularity, i.e. the last few hours, days of data.
+**NOTE**: this is a fork of [codesuki/go-time-series](https://github.com/codesuki/go-time-series).
 
-A redis backend is planned.
+The time series supports storing counts at different granularities, e.g. seconds, minutes, hours, ...
 
 * Simple interface
 * Store time series data at different granularities
@@ -21,7 +19,7 @@ A redis backend is planned.
 The default settings use `time.Now()` as clock and `time.Second * 60`, `time.Minute * 60` and `time.Hour * 24` as granularities.
 
 ```go
-import "github.com/codesuki/go-time-series"
+import "github.com/marco-m/go-time-series"
 
 ...
 
@@ -35,7 +33,7 @@ if err != nil {
 You can specify the clock and/or granularities to use. A clock must implement the `timeseries.Clock` interface.
 
 ```go
-import "github.com/codesuki/go-time-series"
+import "github.com/marco-m/go-time-series"
 
 ...
 type clock struct {}
@@ -64,7 +62,7 @@ if err != nil {
 To fill the time series with counts, e.g. events, you can use two different functions.
 
 ```go
-import "github.com/codesuki/go-time-series"
+import "github.com/marco-m/go-time-series"
 
 ...
 
@@ -80,10 +78,10 @@ ts.IncreaseAtTime(3, time.Now().Add(-2 * time.Minute)) // adds 3 to the counter 
 ### Querying the time series
 The `Range()` function takes 2 arguments, i.e. the start and end of a time span.
 `Recent()` is a small helper function that just uses `clock.Now()` as `end` in `Range`.
-Please refer to the [documentation](https://godoc.org/github.com/codesuki/go-time-series) for how `Range()` works exactly. There are some details depending on what range you query and what range is available.
+Please refer to the [documentation](https://pkg.go.dev/github.com/marco-m/go-time-series) for how `Range()` works exactly. There are some details depending on what range you query and what range is available.
 
 ```go
-import "github.com/codesuki/go-time-series"
+import "github.com/marco-m/go-time-series"
 
 ...
 
@@ -103,7 +101,9 @@ ts.Range(time.Now().Add(-5 * time.Second), time.Now()) // returns 5
 ```
 
 ## Documentation
-GoDoc is located [here](https://godoc.org/github.com/codesuki/go-time-series)
+
+See the [![Go Reference](https://pkg.go.dev/badge/github.com/marco-m/go-time-series.svg)](https://pkg.go.dev/github.com/marco-m/go-time-series)
 
 ## License
+
 go-time-series is [MIT licensed](./LICENSE).
